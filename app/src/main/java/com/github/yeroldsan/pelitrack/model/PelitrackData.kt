@@ -1,34 +1,18 @@
 package com.github.yeroldsan.pelitrack.model
 
+import com.google.gson.annotations.SerializedName
+
 data class PelitrackData(
-    val movies: List<Movie>,
-    val series: List<Serie>
+    @SerializedName("results") val movies: List<Movie>,
 ) {
 
     data class Movie(
         val id: Int,
         val title: String,
         val overview: String,
-        val posterPath: String,
-        val backdropPath: String,
-        val releaseDate: String,
-        val voteAverage: Double,
-        val voteCount: Int,
-        val isFavorite: Boolean,
-        val isWatched: Boolean,
-        val genreIds: List<Int>,
-    )
-
-    data class Serie(
-        val id: Int,
-        val name: String,
-        val overview: String,
-        val posterPath: String,
-        val backdropPath: String,
-        val voteAverage: Double,
-        val voteCount: Int,
-        val isFavorite: Boolean,
-        val isWatched: Boolean,
-        val genreIds: List<Int>,
+        @SerializedName("poster_path") val posterPath: String?,
+        @SerializedName("release_date") val releaseDate: String,
+        @SerializedName("vote_average") val voteAverage: Double,
+        @SerializedName("vote_count") val voteCount: Int
     )
 }
