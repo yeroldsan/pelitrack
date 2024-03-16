@@ -29,10 +29,6 @@ class PelitrackViewModel: ViewModel() {
     private val _apiKey = MutableStateFlow<String?>(null)
     val apiKey: StateFlow<String?> = _apiKey
 
-    // Data
-    private val _movies = MutableStateFlow<List<MoviesResponse.Movie>>(emptyList())
-    private val _series = MutableStateFlow<List<SeriesResponse.Serie>>(emptyList())
-
     init {
         if (apiKey.value != null) {
             fetchMoviesAndSeries()
@@ -59,6 +55,7 @@ class PelitrackViewModel: ViewModel() {
     }
 
     private fun fetchMoviesAndSeries() {
+        _pelitrackUiState.value = PelitrackUiState.Loading
         try {
             viewModelScope.launch {
                 val moviesDeferred = viewModelScope.async { PelitrackRepository.create().getMovies(apiKey.value) }
