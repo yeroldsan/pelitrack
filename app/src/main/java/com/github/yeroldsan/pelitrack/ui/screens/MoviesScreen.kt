@@ -9,9 +9,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -20,23 +18,27 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.github.yeroldsan.pelitrack.model.MoviesResponse
+import com.github.yeroldsan.pelitrack.viewmodel.PelitrackUiState
 
 @Composable
-fun MoviesScreen(navController: NavController, movies: List<MoviesResponse.Movie>) {
-    LazyVerticalGrid(
-        modifier = Modifier.fillMaxSize(),
-        columns = GridCells.Fixed(3),
-    ) {
-        if (movies.isNotEmpty()) {
-            items(movies) { movie ->
-                MovieCard(
-                    movie = movie,
-                    modifier = Modifier
-                        .padding(horizontal = 4.dp, vertical = 4.dp)
-                )
+fun MoviesScreen(retryAction: () -> Unit, pelitrackUiState: PelitrackUiState) {
+    when (pelitrackUiState) {
+        is PelitrackUiState.Initial -> InitialScreen()
+        is PelitrackUiState.Loading -> LoadingScreen()
+        is PelitrackUiState.Error -> ErrorScreen(retryAction = { retryAction() })
+        is PelitrackUiState.Success -> {
+            LazyVerticalGrid(
+                modifier = Modifier.fillMaxSize(),
+                columns = GridCells.Fixed(3),
+            ) {
+                items(pelitrackUiState.movies) { movie ->
+                    MovieCard(
+                        movie = movie,
+                        modifier = Modifier
+                            .padding(4.dp, 4.dp)
+                    )
+                }
             }
-        } else {
-            item { Text(text = "No movies found") }
         }
     }
 }
@@ -46,7 +48,6 @@ fun MoviesScreen(navController: NavController, movies: List<MoviesResponse.Movie
 fun MovieCard(movie: MoviesResponse.Movie, modifier: Modifier) {
     Card(
         modifier = modifier,
-//        shape = RoundedCornerShape(0.dp),
         onClick = { /* TODO */ },
     ) {
         AsyncImage(

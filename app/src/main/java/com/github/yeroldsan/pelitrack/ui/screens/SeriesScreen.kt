@@ -20,23 +20,27 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.github.yeroldsan.pelitrack.model.SeriesResponse
+import com.github.yeroldsan.pelitrack.viewmodel.PelitrackUiState
 
 @Composable
-fun SeriesScreen(navController: NavController, series: List<SeriesResponse.Serie>, getSeries: () -> Unit) {
-    LazyVerticalGrid(
-        modifier = Modifier.fillMaxSize(),
-        columns = GridCells.Fixed(3),
-    ) {
-        if (series.isNotEmpty()) {
-            items(series) { serie ->
-                SerieCard(
-                    serie = serie,
-                    modifier = Modifier
-                        .padding(0.dp)
-                )
+fun SeriesScreen(retryAction: () -> Unit, pelitrackUiState: PelitrackUiState) {
+    when (pelitrackUiState) {
+        is PelitrackUiState.Initial -> InitialScreen()
+        is PelitrackUiState.Loading -> LoadingScreen()
+        is PelitrackUiState.Error -> ErrorScreen(retryAction = { retryAction() })
+        is PelitrackUiState.Success -> {
+            LazyVerticalGrid(
+                modifier = Modifier.fillMaxSize(),
+                columns = GridCells.Fixed(3),
+            ) {
+                items(pelitrackUiState.series) { serie ->
+                    SerieCard(
+                        serie = serie,
+                        modifier = Modifier
+                            .padding(4.dp, 4.dp)
+                    )
+                }
             }
-        } else {
-            item { Text(text = "No series found") }
         }
     }
 }
@@ -46,7 +50,6 @@ fun SeriesScreen(navController: NavController, series: List<SeriesResponse.Serie
 fun SerieCard(serie: SeriesResponse.Serie, modifier: Modifier) {
     Card(
         modifier = modifier,
-        shape = RoundedCornerShape(0.dp),
         onClick = { /* TODO */ },
     ) {
         AsyncImage(
