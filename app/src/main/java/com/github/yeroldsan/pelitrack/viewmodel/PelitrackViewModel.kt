@@ -67,7 +67,6 @@ class PelitrackViewModel: ViewModel() {
                 }
             }
         } catch (e: Exception) {
-            Log.d("Error", e.toString())
             _pelitrackUiState.value = PelitrackUiState.Error
         }
     }

@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -49,7 +50,7 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
 //                        val apiKey by vModel.apiKey.collectAsState()
 
             Text(
-                text = "Save your API key below.",
+                text = stringResource(R.string.save_api_key_bottom_sheet),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.padding(bottom = 24.dp)
@@ -58,7 +59,7 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
             OutlinedTextField(
                 value = userApiKey,
                 onValueChange = { it -> userApiKey = it },
-                label = { Text(text = "API Key") },
+                label = { Text(text = stringResource(R.string.api_key_text_input_field)) },
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.Transparent,
@@ -71,7 +72,9 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
                 trailingIcon = {
                     val visibilityIcon = if (keyHidden) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24
                     // Localized description for accessibility services
-                    val description = if (keyHidden) "Show key" else "Hide key"
+                    val description = if (keyHidden) stringResource(R.string.show_key) else stringResource(
+                        R.string.hide_key
+                    )
 
                     IconButton(
                         onClick = { keyHidden = !keyHidden }
@@ -86,7 +89,7 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
                     .padding(horizontal = 38.dp, vertical = 24.dp),
                 onClick = {  vModel.setApiKey(userApiKey); vModel.closeSettings() }
             ) {
-                Text(text = "Save")
+                Text(text = stringResource(R.string.save_button))
             }
         }
     }

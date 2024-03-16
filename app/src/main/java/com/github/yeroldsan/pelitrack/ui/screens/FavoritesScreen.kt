@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.github.yeroldsan.pelitrack.R
@@ -30,9 +31,12 @@ fun FavoritesScreen(pelitrackUiState: PelitrackUiState, retryAction: () -> Unit)
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Icon(painter = painterResource(id = R.drawable.baseline_collections_bookmark_24), contentDescription = "Favorite")
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_collections_bookmark_24),
+                    contentDescription = stringResource(R.string.favorite_content_description)
+                )
                 Text(
-                    text = "Place for your favorite movies and series.",
+                    text = stringResource(R.string.favorites_screen_message),
                     modifier = Modifier.padding(16.dp)
                 )
             }

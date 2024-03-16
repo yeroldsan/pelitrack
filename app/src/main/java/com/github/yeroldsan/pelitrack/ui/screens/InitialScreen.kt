@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.github.yeroldsan.pelitrack.R
 
@@ -20,7 +21,13 @@ fun InitialScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(painter = (painterResource(id = R.drawable.baseline_key_24)), contentDescription = "API key not provided")
-        Text(text = "Add your API key in Settings", modifier = Modifier.padding(16.dp))
+        Icon(
+            painter = (painterResource(id = R.drawable.baseline_key_24)),
+            contentDescription = stringResource(R.string.api_key_not_provided)
+        )
+        Text(
+            text = stringResource(R.string.api_key_screen_message),
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }

@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.github.yeroldsan.pelitrack.R
 
@@ -21,12 +22,18 @@ fun ErrorScreen(retryAction: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(painter = painterResource(id = R.drawable.baseline_cloud_off_24), contentDescription = "Failed to load")
-        Text(text = "Failed to load", modifier = Modifier.padding(16.dp))
+        Icon(
+            painter = painterResource(id = R.drawable.baseline_cloud_off_24),
+            contentDescription = stringResource(R.string.failed_to_load)
+        )
+        Text(
+            text = stringResource(R.string.failed_to_load),
+            modifier = Modifier.padding(16.dp)
+        )
         Button(
             onClick = retryAction
         ) {
-            Text("Retry")
+            Text(stringResource(R.string.retry_button))
         }
     }
 }

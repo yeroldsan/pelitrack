@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Pelitrack</string>
+    <string name="top_bar_title">Popular</string>
+    <string name="settings_icon_description">Settings</string>
+    <string name="save_api_key_bottom_sheet">Save your API key below.</string>
+    <string name="api_key_text_input_field">API Key</string>
+    <string name="show_key">Show key</string>
+    <string name="hide_key">Hide key</string>
+    <string name="save_button">Save</string>
+    <string name="failed_to_load">Failed to load</string>
+    <string name="retry_button">Retry</string>
+    <string name="favorite_content_description">Favorite</string>
+    <string name="favorites_screen_message">Place for your favorite movies and series.</string>
+    <string name="api_key_not_provided">API key not provided</string>
+    <string name="api_key_screen_message">Add your API key in Settings</string>
+    <string name="api_images_url">https://image.tmdb.org/t/p/w500%1$s</string>
 </resources>
