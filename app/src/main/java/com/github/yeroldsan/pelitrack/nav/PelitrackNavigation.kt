@@ -20,11 +20,10 @@ sealed class Screen(val route: String, val icon: Int) {
 
 @Composable
 fun NavGraph(navController: NavHostController, vModel: PelitrackViewModel) {
-//    val navController = rememberNavController()
     val uiSate by vModel.pelitrackUiState.collectAsState()
     NavHost(
         navController = navController,
-        startDestination = Screen.Favorites.route
+        startDestination = Screen.Series.route
     ) {
         composable(Screen.Movies.route) {
             MoviesScreen(retryAction = vModel::retryFetch, pelitrackUiState = uiSate)
