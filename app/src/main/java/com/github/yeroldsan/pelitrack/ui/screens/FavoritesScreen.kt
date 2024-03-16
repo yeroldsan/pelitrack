@@ -1,4 +1,4 @@
-package com.github.yeroldsan.pelitrack.ui.composables
+package com.github.yeroldsan.pelitrack.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

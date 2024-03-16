@@ -1,4 +1,4 @@
-package com.github.yeroldsan.pelitrack.ui.composables
+package com.github.yeroldsan.pelitrack.ui.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.github.yeroldsan.pelitrack.model.MoviesResponse
