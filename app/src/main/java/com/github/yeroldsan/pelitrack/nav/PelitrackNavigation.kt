@@ -33,7 +33,7 @@ fun NavGraph(navController: NavHostController, vModel: PelitrackViewModel) {
             SeriesScreen(retryAction = vModel::retryFetch, pelitrackUiState = uiSate)
         }
         composable(Screen.Favorites.route) {
-            FavoritesScreen(navController = navController)
+            FavoritesScreen(pelitrackUiState = uiSate, retryAction = vModel::retryFetch)
         }
     }
 }
