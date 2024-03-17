@@ -1,12 +1,10 @@
 package com.github.yeroldsan.pelitrack.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.yeroldsan.pelitrack.model.MoviesResponse
 import com.github.yeroldsan.pelitrack.model.PelitrackRepository
 import com.github.yeroldsan.pelitrack.model.SeriesResponse
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
