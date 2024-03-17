@@ -56,18 +56,20 @@ class PelitrackViewModel: ViewModel() {
 
     private fun fetchMoviesAndSeries() {
         _pelitrackUiState.value = PelitrackUiState.Loading
-        try {
-            viewModelScope.launch {
-                val moviesDeferred = viewModelScope.async { PelitrackRepository.create().getMovies(apiKey.value) }
-                val seriesDeferred = viewModelScope.async { PelitrackRepository.create().getSeries(apiKey.value) }
-                val moviesResponse = moviesDeferred.await()
-                val seriesResponse = seriesDeferred.await()
+        viewModelScope.launch {
+            try {
+                val moviesResponse = PelitrackRepository.create().getMovies(apiKey.value)
+                val seriesResponse = PelitrackRepository.create().getSeries(apiKey.value)
+
                 if (moviesResponse.isSuccessful && seriesResponse.isSuccessful) {
-                    _pelitrackUiState.value = PelitrackUiState.Success(moviesResponse.body()?.movies ?: emptyList(), seriesResponse.body()?.series ?: emptyList())
+                    _pelitrackUiState.value = PelitrackUiState.Success(
+                        moviesResponse.body()?.movies ?: emptyList(),
+                        seriesResponse.body()?.series ?: emptyList()
+                    )
                 }
+            } catch (e: Exception) {
+                _pelitrackUiState.value = PelitrackUiState.Error
             }
-        } catch (e: Exception) {
-            _pelitrackUiState.value = PelitrackUiState.Error
         }
     }
 }
