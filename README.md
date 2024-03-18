@@ -31,8 +31,9 @@ This applicaiton showcases:
 
 ## Requirements
 
-To try out Pelitrack, you need to have the following installed:
-- [Android Studio](https://developer.android.com/studio)
+You need to have:
+- [Android Studio](https://developer.android.com/studio) installed.
+- An API key from [TMDB](https://developer.themoviedb.org/docs/getting-started).
 
 > [!NOTE]
 > You might have to install the right Android SDK via Tools/SDK Manager first.
