@@ -2,6 +2,15 @@
 
 Pelitrack is an applicaiton built following the recommendations for Android architecture to discover the most popular movies and series listed on TMDB. The goal is to combine the concepts learned throughout the Android development course and the Android practice examples listed in this [repository](https://github.com/yeroldsan/android-practice).
 
+<br>
+<div align="center">
+  <img src="https://i.postimg.cc/28gYhDvX/image1.webp" width="19.5%" alt="settings" />
+  <img src="https://i.postimg.cc/mgMsS5yZ/image2.webp" width="19.5%" alt="settings-api" />
+  <img src="https://i.postimg.cc/N0kv32nW/image3.webp" width="19.5%" alt="series" />
+  <img src="https://i.postimg.cc/4NYZYdK9/image4.webp" width="19.5%" alt="movies" />
+</div>
+<br>
+
 This applicaiton showcases:
 
   - Material Design 3 theming and Material You dynamic color.
@@ -11,11 +20,9 @@ This applicaiton showcases:
   - Use of Retrofit for HTTP calls and Coil for image loading.
   - Asynchronous operations with Kotlin Coroutines for improved performance.
 
-# Screenshots
 
-Coming soon...
 
-# Features
+## Features
 
 - [x] List the most popular movies.
 - [x] List the most popular series.
