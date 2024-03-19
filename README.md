@@ -24,7 +24,7 @@ This applicaiton showcases:
 
 - [x] List the most popular movies.
 - [x] List the most popular series.
-- [ ] Save your favortie series and movies.
+- [ ] Save your favorite series and movies.
 - [ ] Information screen for movie and serie.
 
 ## Requirements
