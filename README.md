@@ -20,13 +20,11 @@ This applicaiton showcases:
   - Use of Retrofit for HTTP calls and Coil for image loading.
   - Asynchronous operations with Kotlin Coroutines for improved performance.
 
-
-
 ## Features
 
 - [x] List the most popular movies.
 - [x] List the most popular series.
-- [ ] Save your your favorties.
+- [ ] Save your favortie series and movies.
 - [ ] Information screen for movie and serie.
 
 ## Requirements
