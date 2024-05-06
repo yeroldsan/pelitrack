@@ -4,10 +4,10 @@ Pelitrack is an applicaiton built following the recommendations for Android arch
 
 <br>
 <div align="center">
-  <img src="https://i.postimg.cc/28gYhDvX/image1.webp" width="19.5%" alt="settings" />
-  <img src="https://i.postimg.cc/mgMsS5yZ/image2.webp" width="19.5%" alt="settings-api" />
-  <img src="https://i.postimg.cc/N0kv32nW/image3.webp" width="19.5%" alt="series" />
-  <img src="https://i.postimg.cc/4NYZYdK9/image4.webp" width="19.5%" alt="movies" />
+  <img src="https://i.postimg.cc/7bvCYD5w/image1.webp" width="19.5%" alt="settings" />
+  <img src="https://i.postimg.cc/pVmqTZm6/image2.webp" width="19.5%" alt="settings-api" />
+  <img src="https://i.postimg.cc/44jwh9tN/image3.webp" width="19.5%" alt="series" />
+  <img src="https://i.postimg.cc/nr9jJMc3/image4.webp" width="19.5%" alt="movies" />
 </div>
 <br>
 
