@@ -87,7 +87,10 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 38.dp, vertical = 24.dp),
-                onClick = {  vModel.setApiKey(userApiKey); vModel.closeSettings() }
+                onClick = {
+                    vModel.retryFetch()
+                    vModel.closeSettings()
+                }
             ) {
                 Text(text = stringResource(R.string.save_button))
             }
