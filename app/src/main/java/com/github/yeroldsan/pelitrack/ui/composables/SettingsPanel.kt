@@ -16,6 +16,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,8 +47,7 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
             modifier = Modifier.padding(24.dp)
         ) {
             var keyHidden by remember { mutableStateOf(true) }
-            var userApiKey by remember { mutableStateOf("") }
-//                        val apiKey by vModel.apiKey.collectAsState()
+            val apiKey by vModel.apiKey.collectAsState()
 
             Text(
                 text = stringResource(R.string.save_api_key_bottom_sheet),
@@ -57,8 +57,8 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
             )
 
             OutlinedTextField(
-                value = userApiKey,
-                onValueChange = { it -> userApiKey = it },
+                value = apiKey ?: "",
+                onValueChange = { vModel.setApiKey(it) },
                 label = { Text(text = stringResource(R.string.api_key_text_input_field)) },
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
