@@ -37,7 +37,6 @@ class PelitrackViewModel: ViewModel() {
 
     fun setApiKey(userApiKey: String?) {
         _apiKey.value = userApiKey
-        fetchMoviesAndSeries()
     }
 
     fun closeSettings() {
