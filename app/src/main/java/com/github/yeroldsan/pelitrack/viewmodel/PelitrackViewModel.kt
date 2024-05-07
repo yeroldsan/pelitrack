@@ -28,11 +28,7 @@ class PelitrackViewModel: ViewModel() {
     val apiKey: StateFlow<String?> = _apiKey
 
     init {
-        if (apiKey.value != null) {
-            fetchMoviesAndSeries()
-        } else {
-            _pelitrackUiState.value = PelitrackUiState.Initial
-        }
+        _pelitrackUiState.value = PelitrackUiState.Initial
     }
 
     fun openSettings() {
