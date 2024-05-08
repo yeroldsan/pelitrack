@@ -1,21 +1,30 @@
 package com.github.yeroldsan.pelitrack.nav
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Movie
+import androidx.compose.material.icons.filled.Tv
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Movie
+import androidx.compose.material.icons.outlined.Tv
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.github.yeroldsan.pelitrack.R
 import com.github.yeroldsan.pelitrack.ui.screens.FavoritesScreen
 import com.github.yeroldsan.pelitrack.ui.screens.MoviesScreen
 import com.github.yeroldsan.pelitrack.ui.screens.SeriesScreen
 import com.github.yeroldsan.pelitrack.viewmodel.PelitrackViewModel
 
-sealed class Screen(val route: String, val icon: Int) {
-    data object Movies : Screen("Movies",  R.drawable.baseline_movie_24)
-    data object Series : Screen("Series", R.drawable.baseline_tv_24)
-    data object Favorites : Screen("Favorites", R.drawable.baseline_collections_bookmark_24)
+sealed class Screen(
+    val route: String, val unselectedIcon: ImageVector, val selectedIcon: ImageVector
+) {
+    data object Movies : Screen("Movies",  Icons.Outlined.Movie, Icons.Filled.Movie)
+    data object Series : Screen("Series", Icons.Outlined.Tv, Icons.Filled.Tv)
+    data object Favorites : Screen("Favorites", Icons.Outlined.Favorite, Icons.Filled.Favorite)
 }
 
 @Composable
