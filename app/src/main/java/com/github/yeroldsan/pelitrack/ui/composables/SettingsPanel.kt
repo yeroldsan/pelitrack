@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -68,18 +71,25 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
                     keyboardType = KeyboardType.Password,
                     imeAction = ImeAction.Done
                 ),
-                visualTransformation = if (keyHidden) PasswordVisualTransformation() else VisualTransformation.None,
+                visualTransformation =
+                    if (keyHidden) PasswordVisualTransformation()
+                    else VisualTransformation.None,
                 trailingIcon = {
-                    val visibilityIcon = if (keyHidden) R.drawable.baseline_visibility_24 else R.drawable.baseline_visibility_off_24
+                    val visibilityIcon =
+                        if (keyHidden) Icons.Filled.Visibility
+                        else Icons.Filled.VisibilityOff
                     // Localized description for accessibility services
-                    val description = if (keyHidden) stringResource(R.string.show_key) else stringResource(
-                        R.string.hide_key
-                    )
+                    val description =
+                        if (keyHidden) stringResource(R.string.show_key)
+                        else stringResource(R.string.hide_key)
 
                     IconButton(
                         onClick = { keyHidden = !keyHidden }
                     ) {
-                        Icon(painterResource(id = visibilityIcon), contentDescription = description)
+                        Icon(
+                            imageVector = visibilityIcon,
+                            contentDescription = description
+                        )
                     }
                 }
             )

@@ -6,7 +6,6 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -19,7 +18,16 @@ fun MainBottomAppBar(navController: NavController, screens: List<Screen>) {
         val currentDestination = navBackStackEntry?.destination
         screens.forEach { screen ->
             NavigationBarItem(
-                icon = { Icon(painter = painterResource(id = screen.icon), contentDescription = screen.route) },
+                icon = {
+                    Icon(
+                        imageVector =
+                            if (currentDestination?.hierarchy?.any { it.route == screen.route } == true)
+                                screen.selectedIcon
+                            else
+                                screen.unselectedIcon,
+                        contentDescription = screen.route
+                    )
+                },
                 label = { Text(screen.route) },
                 selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                 onClick = {
