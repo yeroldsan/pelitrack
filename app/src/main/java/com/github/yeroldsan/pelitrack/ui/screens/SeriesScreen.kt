@@ -44,7 +44,6 @@ fun SeriesScreen(retryAction: () -> Unit, pelitrackUiState: PelitrackUiState) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SerieCard(serie: SeriesResponse.Serie, modifier: Modifier) {
     Card(
