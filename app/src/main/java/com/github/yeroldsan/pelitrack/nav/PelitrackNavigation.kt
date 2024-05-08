@@ -2,9 +2,9 @@ package com.github.yeroldsan.pelitrack.nav
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.LiveTv
 import androidx.compose.material.icons.filled.Movie
-import androidx.compose.material.icons.filled.Tv
-import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Movie
 import androidx.compose.material.icons.outlined.Tv
 import androidx.compose.runtime.Composable
@@ -23,8 +23,8 @@ sealed class Screen(
     val route: String, val unselectedIcon: ImageVector, val selectedIcon: ImageVector
 ) {
     data object Movies : Screen("Movies",  Icons.Outlined.Movie, Icons.Filled.Movie)
-    data object Series : Screen("Series", Icons.Outlined.Tv, Icons.Filled.Tv)
-    data object Favorites : Screen("Favorites", Icons.Outlined.Favorite, Icons.Filled.Favorite)
+    data object Series : Screen("Series", Icons.Outlined.Tv, Icons.Filled.LiveTv)
+    data object Favorites : Screen("Favorites", Icons.Outlined.FavoriteBorder, Icons.Filled.Favorite)
 }
 
 @Composable
