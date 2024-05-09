@@ -2,7 +2,6 @@ package com.github.yeroldsan.pelitrack.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CloudOff
@@ -17,9 +16,12 @@ import androidx.compose.ui.unit.dp
 import com.github.yeroldsan.pelitrack.R
 
 @Composable
-fun ErrorScreen(retryAction: () -> Unit) {
+fun ErrorScreen(
+    modifier: Modifier = Modifier,
+    retryAction: () -> Unit
+) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

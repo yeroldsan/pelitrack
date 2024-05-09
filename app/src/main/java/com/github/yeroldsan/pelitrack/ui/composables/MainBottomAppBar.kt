@@ -21,10 +21,11 @@ fun MainBottomAppBar(navController: NavController, screens: List<Screen>) {
                 icon = {
                     Icon(
                         imageVector =
-                            if (currentDestination?.hierarchy?.any { it.route == screen.route } == true)
-                                screen.selectedIcon
-                            else
-                                screen.unselectedIcon,
+                        if (currentDestination?.hierarchy?.any { it.route == screen.route } == true) {
+                            screen.selectedIcon
+                        } else {
+                            screen.unselectedIcon
+                        },
                         contentDescription = screen.route
                     )
                 },
@@ -43,7 +44,6 @@ fun MainBottomAppBar(navController: NavController, screens: List<Screen>) {
                         launchSingleTop = true
                         // Restore state when re-selecting a previously selected item
                         restoreState = true
-
                     }
                 }
             )

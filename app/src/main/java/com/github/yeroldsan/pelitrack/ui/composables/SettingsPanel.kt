@@ -27,7 +27,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -42,11 +41,11 @@ import com.github.yeroldsan.pelitrack.viewmodel.PelitrackViewModel
 fun SettingsPanel(vModel: PelitrackViewModel) {
     ModalBottomSheet(
         modifier = Modifier.imePadding(),
-        onDismissRequest = {  vModel.closeSettings() }
+        onDismissRequest = { vModel.closeSettings() }
     ) {
-        Column (
+        Column(
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment =  Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(24.dp)
         ) {
             var keyHidden by remember { mutableStateOf(true) }
@@ -72,16 +71,25 @@ fun SettingsPanel(vModel: PelitrackViewModel) {
                     imeAction = ImeAction.Done
                 ),
                 visualTransformation =
-                    if (keyHidden) PasswordVisualTransformation()
-                    else VisualTransformation.None,
+                if (keyHidden) {
+                    PasswordVisualTransformation()
+                } else {
+                    VisualTransformation.None
+                },
                 trailingIcon = {
                     val visibilityIcon =
-                        if (keyHidden) Icons.Filled.Visibility
-                        else Icons.Filled.VisibilityOff
+                        if (keyHidden) {
+                            Icons.Filled.Visibility
+                        } else {
+                            Icons.Filled.VisibilityOff
+                        }
                     // Localized description for accessibility services
                     val description =
-                        if (keyHidden) stringResource(R.string.show_key)
-                        else stringResource(R.string.hide_key)
+                        if (keyHidden) {
+                            stringResource(R.string.show_key)
+                        } else {
+                            stringResource(R.string.hide_key)
+                        }
 
                     IconButton(
                         onClick = { keyHidden = !keyHidden }

@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun LoadingScreen() {
-    Column (
+    Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center

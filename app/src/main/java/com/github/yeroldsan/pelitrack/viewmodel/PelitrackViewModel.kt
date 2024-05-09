@@ -10,13 +10,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 sealed interface PelitrackUiState {
-    data class Success(val movies: List<MoviesResponse.Movie>, val series: List<SeriesResponse.Serie>) : PelitrackUiState
-    object Initial : PelitrackUiState
-    object Loading : PelitrackUiState
-    object Error : PelitrackUiState
+    data class Success(
+        val movies: List<MoviesResponse.Movie>,
+        val series: List<SeriesResponse.Serie>
+    ) : PelitrackUiState
+    data object Initial : PelitrackUiState
+    data object Loading : PelitrackUiState
+    data object Error : PelitrackUiState
 }
 
-class PelitrackViewModel: ViewModel() {
+class PelitrackViewModel : ViewModel() {
     private val _pelitrackUiState = MutableStateFlow<PelitrackUiState>(PelitrackUiState.Loading)
     val pelitrackUiState: StateFlow<PelitrackUiState> = _pelitrackUiState
 
