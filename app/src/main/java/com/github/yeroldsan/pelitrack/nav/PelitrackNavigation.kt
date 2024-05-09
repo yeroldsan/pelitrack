@@ -20,9 +20,11 @@ import com.github.yeroldsan.pelitrack.ui.screens.SeriesScreen
 import com.github.yeroldsan.pelitrack.viewmodel.PelitrackViewModel
 
 sealed class Screen(
-    val route: String, val unselectedIcon: ImageVector, val selectedIcon: ImageVector
+    val route: String,
+    val unselectedIcon: ImageVector,
+    val selectedIcon: ImageVector
 ) {
-    data object Movies : Screen("Movies",  Icons.Outlined.Movie, Icons.Filled.Movie)
+    data object Movies : Screen("Movies", Icons.Outlined.Movie, Icons.Filled.Movie)
     data object Series : Screen("Series", Icons.Outlined.Tv, Icons.Filled.LiveTv)
     data object Favorites : Screen("Favorites", Icons.Outlined.FavoriteBorder, Icons.Filled.Favorite)
 }

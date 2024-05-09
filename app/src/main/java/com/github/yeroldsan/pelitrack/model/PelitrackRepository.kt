@@ -6,12 +6,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val  BASE_URL = "https://api.themoviedb.org/3/"
+const val BASE_URL = "https://api.themoviedb.org/3/"
 
 interface PelitrackRepository {
 
     @GET("movie/popular")
     suspend fun getMovies(@Query("api_key") apiKey: String?): Response<MoviesResponse>
+
     @GET("tv/popular")
     suspend fun getSeries(@Query("api_key") apiKey: String?): Response<SeriesResponse>
 
