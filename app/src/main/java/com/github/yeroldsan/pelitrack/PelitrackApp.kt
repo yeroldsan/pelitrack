@@ -18,8 +18,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.github.yeroldsan.pelitrack.nav.NavGraph
 import com.github.yeroldsan.pelitrack.nav.Screen
@@ -27,7 +27,6 @@ import com.github.yeroldsan.pelitrack.ui.composables.MainBottomAppBar
 import com.github.yeroldsan.pelitrack.ui.composables.MainTopAppBar
 import com.github.yeroldsan.pelitrack.ui.composables.SettingsPanel
 import com.github.yeroldsan.pelitrack.viewmodel.PelitrackViewModel
-
 
 @Preview(showBackground = true)
 @Composable
@@ -46,12 +45,14 @@ fun PelitrackApp(vModel: PelitrackViewModel = viewModel()) {
         Screen.Series,
         Screen.Favorites
     )
-//    val apiKey by vModel.apiKey.collectAsState()
-
     Scaffold(
         modifier = Modifier.nestedScroll(scrollTopBehavior.nestedScrollConnection),
         topBar = {
-            MainTopAppBar(openSettings = vModel::openSettings, scrollBehavior = scrollTopBehavior, navController = navController)
+            MainTopAppBar(
+                openSettings = vModel::openSettings,
+                scrollBehavior = scrollTopBehavior,
+                navController = navController
+            )
         },
         bottomBar = {
             MainBottomAppBar(navController = navController, screens = screens)

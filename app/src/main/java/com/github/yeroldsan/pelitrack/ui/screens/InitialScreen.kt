@@ -20,15 +20,15 @@ fun InitialScreen() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
             imageVector = Icons.Outlined.Key,
-            contentDescription = stringResource(R.string.api_key_not_provided)
+            contentDescription = stringResource(R.string.api_key_not_provided),
         )
         Text(
             text = stringResource(R.string.api_key_screen_message),
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp),
         )
     }
 }

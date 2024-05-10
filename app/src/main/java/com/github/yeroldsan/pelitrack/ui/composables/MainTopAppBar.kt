@@ -16,7 +16,11 @@ import com.github.yeroldsan.pelitrack.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopAppBar(openSettings: () -> Unit, scrollBehavior: TopAppBarScrollBehavior, navController: NavController) {
+fun MainTopAppBar(
+    openSettings: () -> Unit,
+    scrollBehavior: TopAppBarScrollBehavior,
+    navController: NavController
+) {
     TopAppBar(
         title = { Text(text = stringResource(R.string.top_bar_title), maxLines = 1, overflow = TextOverflow.Ellipsis) },
         scrollBehavior = scrollBehavior,
@@ -33,5 +37,4 @@ fun MainTopAppBar(openSettings: () -> Unit, scrollBehavior: TopAppBarScrollBehav
             }
         }
     )
-
 }
