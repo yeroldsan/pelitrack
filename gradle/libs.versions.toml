@@ -13,7 +13,7 @@ composeBom = "2024.09.03"
 lifecycleViewmodelCompose = "2.8.6"
 navigationCompose = "2.8.1"
 retrofit = "2.11.0"
-materialIconsExtended = "1.7.2"
+materialIconsExtended = "1.7.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
